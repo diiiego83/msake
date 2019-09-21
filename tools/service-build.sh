@@ -2,8 +2,6 @@
 
 function buildMicroService() {
 
-    cd $PROJECT_ROOT_DIR
-    
     if [ -f "package.json" ]; then
         buildMicroServiceNode
     fi
