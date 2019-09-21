@@ -1,17 +1,18 @@
 #!/bin/bash
 
 MSAKE_ROOT_DIR="$( cd "$(dirname "$0")" ; pwd -P )"
-PROJECT_ROOT_DIR="$(dirname "$MSAKE_ROOT_DIR")"
 
 CMD=$1; shift;
+CMD="$(echo "$CMD" | tr '[:upper:]' '[:lower:]')"
+
 if [ "$CMD" == "create" ]; then
-    source $MSAKE_ROOT_DIR/lib/service-gen.sh
+    source $MSAKE_ROOT_DIR/tools/service-gen.sh
     createMicroService $@
     exit 0
 fi
 
 if [ "$CMD" == "build" ]; then
-    source $MSAKE_ROOT_DIR/lib/service-build.sh
+    source $MSAKE_ROOT_DIR/tools/service-build.sh
     buildMicroService $@
     exit 0
 fi

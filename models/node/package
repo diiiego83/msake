@@ -1,8 +1,8 @@
 {
-  "name": "msakextagservice-namemsakextag",
+  "name": "#{service-name}#",
   "version": "1.0.0",
   "license": "Apache-2.0",
-  "repository": "http://...",
+  "repository": "undefined",
   "scripts": {
     "build": "tsc",
     "start": "node dist/main.js"
