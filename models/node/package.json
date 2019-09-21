@@ -1,0 +1,17 @@
+{
+  "name": "msakextagservice-namemsakextag",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "repository": "http://...",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/node": "^12.7.5"
+  }
+}
