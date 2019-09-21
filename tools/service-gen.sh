@@ -25,21 +25,14 @@ function createMicroService() {
     parseInputArgs $@
 
     if [ "$LANGUAGE" == "node" ]; then
-        cp -r $MSAKE_ROOT_DIR/lib/templates/code/node/* $PROJECT_ROOT_DIR
-<<<<<<< HEAD
+        cp -r $MSAKE_ROOT_DIR/lib/models/code/node/* $PROJECT_ROOT_DIR
+        cp $MSAKE_ROOT_DIR/lib/models/code/node/.gitignore $PROJECT_ROOT_DIR
     elif [ "$LANGUAGE" == "go" ]; then
-        cp -r $MSAKE_ROOT_DIR/lib/templates/code/go/* $PROJECT_ROOT_DIR
+        cp -r $MSAKE_ROOT_DIR/lib/models/code/go/* $PROJECT_ROOT_DIR
+        cp $MSAKE_ROOT_DIR/lib/models/code/go/.gitignore $PROJECT_ROOT_DIR
     elif [ "$LANGUAGE" == "python" ]; then
-        cp -r $MSAKE_ROOT_DIR/lib/templates/code/python/* $PROJECT_ROOT_DIR
-=======
-        cp $MSAKE_ROOT_DIR/lib/templates/code/node/.gitignore $PROJECT_ROOT_DIR
-    elif [ "$LANGUAGE" == "go" ]; then
-        cp -r $MSAKE_ROOT_DIR/lib/templates/code/go/* $PROJECT_ROOT_DIR
-        cp $MSAKE_ROOT_DIR/lib/templates/code/go/.gitignore $PROJECT_ROOT_DIR
-    elif [ "$LANGUAGE" == "python" ]; then
-        cp -r $MSAKE_ROOT_DIR/lib/templates/code/python/* $PROJECT_ROOT_DIR
-        cp $MSAKE_ROOT_DIR/lib/templates/code/python/.gitignore $PROJECT_ROOT_DIR
->>>>>>> added build tools and update template node
+        cp -r $MSAKE_ROOT_DIR/lib/models/code/python/* $PROJECT_ROOT_DIR
+        cp $MSAKE_ROOT_DIR/lib/models/code/python/.gitignore $PROJECT_ROOT_DIR
     else
         printf "\n[msake-error] the \"$LANGUAGE\" is not a valid language value, supported --language=node|python|go\n"
         exit 1    
