@@ -1,8 +1,9 @@
 {
   "name": "#{service-name}#",
+  "description": "",
   "version": "1.0.0",
-  "license": "Apache-2.0",
-  "repository": "undefined",
+  "license": "",
+  "repository": "",
   "scripts": {
     "build": "tsc",
     "start": "node dist/main.js"
