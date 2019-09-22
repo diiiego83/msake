@@ -1,4 +1,6 @@
-#!/bin/bash
+# -------------------------------------------------
+# unit test and build a microservice
+# -------------------------------------------------
 
 function buildMicroService() {
 
@@ -9,15 +11,19 @@ function buildMicroService() {
 }
 
 function buildMicroServiceNode() {
-        # download docker image build
+    
+    # download docker image build
     # download docker image base
 
-    # run unit test before build the application
-    # npm install
-    # run unit test
-    # rm -rf dist node_modules
+    # clear
+    rm -rf dist node_modules
 
-    # check if package json exist
+    # unit test
+    npm install
+    npm run test
+    rm -rf node_modules
+
+    # build 
     npm install --production
     npm run build
 
@@ -25,4 +31,3 @@ function buildMicroServiceNode() {
     # push the docker image
 
 }
-

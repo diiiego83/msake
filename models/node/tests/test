@@ -1,0 +1,30 @@
+process.env.UNIT_TEST = 'ON';
+
+import { expect } from 'chai';
+import { Server } from '../src/server';
+
+import * as request from 'request';
+
+const serverPort = 5001;
+
+before((done) => {
+    Server.start(serverPort);
+    done();
+});
+
+after((done) => {
+    Server.stop();
+    done();
+});
+
+describe('- Test service is running\n', () => {
+    it('should return 200 the service is running', (done) => {
+        request.get('http://localhost:' + serverPort, (err, res) => {
+            expect(res.statusCode).to.be.equal(200);
+            expect(res.body).contain('running');
+            done();
+        });
+    });
+});
+
+delete process.env.UNIT_TEST;

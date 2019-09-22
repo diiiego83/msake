@@ -1,25 +1,54 @@
 #!/bin/bash
+# -----------------------------------------------
+# msake - main execution script
+# A uniform and automated CI/CD management 
+# system for micro-services 
+# -----------------------------------------------
 
+# exit when any command fails
+set -e
+
+function help() {
+    printf "$0  create, build, help\n\n"
+    printf "%s\n" "- create - create a new microservice"
+    printf "%s\n" "- build  - build a microservice"
+    printf "%s\n" "- help   - display this help menu"
+    exit $1
+}
+
+# argument required
+if [ -z "$1" ]; then
+    printf "\n[msake-error] missing argument\n\n"; 
+    help 1
+fi
+
+# set the running mode (first input argument)
+RUN_MODE=$1; shift;
+RUN_MODE="$(echo "$RUN_MODE" | tr '[:upper:]' '[:lower:]')"
+
+# set the msake dir
 MSAKE_DIR="$( cd "$(dirname "$0")" ; pwd -P )"
 
-CMD=$1; shift;
-CMD="$(echo "$CMD" | tr '[:upper:]' '[:lower:]')"
-
-if [ "$CMD" == "create" ]; then
+# create a new micro service
+if [ "$RUN_MODE" == "create" ]; then
     source $MSAKE_DIR/tools/service-gen.sh
     createMicroService $@
     exit 0
 fi
 
-if [ "$CMD" == "build" ]; then
+# build a microservice
+if [ "$RUN_MODE" == "build" ]; then
     source $MSAKE_DIR/tools/service-build.sh
     buildMicroService $@
     exit 0
 fi
 
-if [ ! -z "$CMD" ]; then
-    printf "\n[msake-error] The command \"$CMD\" is not supported\n"
-else
-    printf "\n[msake-error] The command has not been specified\n"    
+# display help menu
+if [ "$RUN_MODE" == "help" ]; then
+    printf "\n[ nmsake - micro-services make ]\n\n";
+    help
 fi
-exit 1
+
+# input arguments error handling
+printf "\n[msake-error] \"$RUN_MODE\" is not supported\n\n"
+help 1

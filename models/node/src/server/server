@@ -1,17 +1,31 @@
 import * as express from 'express';
+import * as http from 'http';
 
 export class Server {
 
+    public static app: express.Express;
+
     public static start(port: number = 5000) {
-        this.app = express();
-        this.app.get('/', (req: express.Request, res: express.Response) =>  {
-            res.send('service #{service-name}# is running');
+
+        if (!this.app) {
+            this.app = express();
+            this.app.get('/', (req: express.Request, res: express.Response) =>  {
+                res.send('service bacardi is running');
+            });
+        }
+
+        this.server = this.app.listen(port, () => {
+            if (process.env.UNIT_TEST) {
+                console.log(`app listening on port ${port}...`);
+            }
         });
-        this.app.listen(port, () => {
-            console.log(`app listening on port ${port}...`);
-        });
+
     }
 
-    private static app: express.Express;
+    public static stop() {
+        this.server.close();
+    }
+
+    private static server: http.Server;
 
 }
