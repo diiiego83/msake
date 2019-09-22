@@ -4,7 +4,7 @@
 
 function help() {
     printf "$0  create --language=* --service-name=*\n\n"
-    printf "%s\n" "--language      - service lsanguage node, go or python"
+    printf "%s\n" "--language      - service language node, go or python"
     printf "%s\n" "--service-name  - name of the service "
     printf "%s\n" "--help          - display this help menu"
     exit $1

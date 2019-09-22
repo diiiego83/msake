@@ -1,8 +1,6 @@
 #!/bin/bash
 # -----------------------------------------------
 # msake - main execution script
-# A uniform and automated CI/CD management 
-# system for micro-services 
 # -----------------------------------------------
 
 # exit when any command fails
