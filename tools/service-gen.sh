@@ -108,6 +108,10 @@ function createMicroService() {
     cd $SERVICE_DIR
     git submodule add $MSAKE_GIT_URL_REMOTE
 
+    # install packages
+    printf "${P}install default third party dependecies\n"
+    npm install
+
     # create the first commit
     printf "${P}perform first commit\n"
     git add .
