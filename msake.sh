@@ -8,8 +8,8 @@ set -e
 
 function help() {
     printf "$0  create, build, help\n\n"
-    printf "%s\n" "- create - create a new microservice"
-    printf "%s\n" "- build  - build a microservice"
+    printf "%s\n" "- create - create a new micro-service"
+    printf "%s\n" "- build  - build a micro-service"
     printf "%s\n" "- help   - display this help menu"
     exit $1
 }
@@ -34,7 +34,7 @@ if [ "$RUN_MODE" == "create" ]; then
     exit 0
 fi
 
-# build a microservice
+# build a micro-service
 if [ "$RUN_MODE" == "build" ]; then
     source $MSAKE_DIR/tools/service-build.sh
     buildMicroService $@
@@ -43,7 +43,7 @@ fi
 
 # display help menu
 if [ "$RUN_MODE" == "help" ]; then
-    printf "\n[ nmsake - micro-services make ]\n\n";
+    printf "\n[ msake - micro-services make ]\n\n";
     help
 fi
 

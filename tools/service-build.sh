@@ -1,5 +1,5 @@
 # -------------------------------------------------
-# unit test and build a microservice
+# unit test and build a micro-service
 # -------------------------------------------------
 
 function buildMicroService() {

@@ -1,5 +1,5 @@
 # -------------------------------------------------
-# create a microservice in node, go or python
+# create a micro-service in node, go or python
 # -------------------------------------------------
 
 function help() {
@@ -62,7 +62,7 @@ function createMicroService() {
     fi
 
     P="== "
-    printf "${P}msake create serice ${SERVICE_NAME}\n" 
+    printf "${P}msake create service ${SERVICE_NAME}\n" 
     printf "${P}create source directory\n"
     mkdir $SERVICE_NAME
     cd $SERVICE_NAME
@@ -113,6 +113,6 @@ function createMicroService() {
     git add .
     git commit -m "msake initialization"
 
-    printf "${P}service ${SERVICE_NAME} succesfully created\n";
+    printf "${P}service ${SERVICE_NAME} successfully created\n";
 
 }

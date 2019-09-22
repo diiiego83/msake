@@ -17,7 +17,7 @@ after((done) => {
     done();
 });
 
-describe('- 01 - serice running\n', () => {
+describe('- 01 - service running\n', () => {
     it('should return 200 if the service is running', (done) => {
         request.get('http://localhost:' + serverPort, (err, res) => {
             expect(res.statusCode).to.be.equal(200);
