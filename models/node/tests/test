@@ -1,5 +1,3 @@
-process.env.UNIT_TEST = 'ON';
-
 import { expect } from 'chai';
 import { Server } from '../src/server';
 
@@ -8,17 +6,19 @@ import * as request from 'request';
 const serverPort = 5001;
 
 before((done) => {
+    process.env.UNIT_TEST = 'ON';
     Server.start(serverPort);
     done();
 });
 
 after((done) => {
     Server.stop();
+    delete process.env.UNIT_TEST;
     done();
 });
 
-describe('- Test service is running\n', () => {
-    it('should return 200 the service is running', (done) => {
+describe('- 01 - serice running\n', () => {
+    it('should return 200 if the service is running', (done) => {
         request.get('http://localhost:' + serverPort, (err, res) => {
             expect(res.statusCode).to.be.equal(200);
             expect(res.body).contain('running');
@@ -26,5 +26,3 @@ describe('- Test service is running\n', () => {
         });
     });
 });
-
-delete process.env.UNIT_TEST;

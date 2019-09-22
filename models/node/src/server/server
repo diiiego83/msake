@@ -16,7 +16,9 @@ export class Server {
 
         this.server = this.app.listen(port, () => {
             if (!process.env.UNIT_TEST) {
-                console.log(`app listening on port ${port}...`);
+                console.log(`Server is listening on port ${port}...`);
+            } else {
+                console.log(`- UTest server is listening on port ${port}\n`);
             }
         });
 
@@ -24,6 +26,9 @@ export class Server {
 
     public static stop() {
         this.server.close();
+        if (process.env.UNIT_TEST) {
+            console.log(`- UTest server hav been closed\n`);
+        }
     }
 
     private static server: http.Server;
