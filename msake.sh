@@ -3,7 +3,7 @@
 # msake - main execution script
 # -----------------------------------------------
 
-# print help menu and exit
+# print help menu and exit 
 function help() {
     printf "$0  create, build, help\n\n"
     printf "%s\n" "- create - create a new micro-service"
