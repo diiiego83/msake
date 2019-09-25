@@ -1,34 +1,23 @@
 import * as express from 'express';
 import * as http from 'http';
 
+const app = express();
+
+app.get('/', (req: express.Request, res: express.Response) =>  {
+    res.send('service bacardi is running');
+});
+
 export class Server {
 
-    public static app: express.Express;
-
-    public static start(port: number = 5000) {
-
-        if (!this.app) {
-            this.app = express();
-            this.app.get('/', (req: express.Request, res: express.Response) =>  {
-                res.send('service bacardi is running');
-            });
-        }
-
-        this.server = this.app.listen(port, () => {
-            if (!process.env.UNIT_TEST) {
-                console.log(`Server is listening on port ${port}...`);
-            } else {
-                console.log(`- UTest server is listening on port ${port}\n`);
-            }
+    public static start(port) {
+        this.server = app.listen(port, () => {
+            console.log(`- Server is listening on port ${port}...\n`);
         });
-
     }
 
     public static stop() {
         this.server.close();
-        if (process.env.UNIT_TEST) {
-            console.log(`- UTest server hav been closed\n`);
-        }
+        console.log(`- Server closed\n`);
     }
 
     private static server: http.Server;

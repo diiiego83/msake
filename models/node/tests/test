@@ -4,22 +4,21 @@ import { Server } from '../src/server';
 import * as request from 'request';
 
 const serverPort = 5001;
+const serverUrl = 'http://localhost:'+ serverPort;
 
 before((done) => {
-    process.env.UNIT_TEST = 'ON';
     Server.start(serverPort);
     done();
 });
 
 after((done) => {
     Server.stop();
-    delete process.env.UNIT_TEST;
     done();
 });
 
 describe('- 01 - service running\n', () => {
     it('should return 200 if the service is running', (done) => {
-        request.get('http://localhost:' + serverPort, (err, res) => {
+        request.get(serverUrl, (err, res) => {
             expect(res.statusCode).to.be.equal(200);
             expect(res.body).contain('running');
             done();

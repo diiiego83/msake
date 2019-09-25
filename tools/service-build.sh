@@ -20,7 +20,7 @@ function buildMicroServiceNode() {
 
     # unit test
     npm install
-    npm run test
+    npm run coverage
     rm -rf node_modules
 
     # build 
