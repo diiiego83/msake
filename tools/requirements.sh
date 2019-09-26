@@ -12,18 +12,19 @@ function checkProgram() {
 
 function checkRequirements() {
 
-    # check if git is installed
+    # required programs
+    checkProgram curl
     checkProgram git
 
     # check user.name is set in git
-    GIT_USERNAME="$(git config --get user.name)"
+    GIT_USERNAME="$(git config --global --get user.name)"
     if [ -z "$GIT_USERNAME" ]; then
         printf "\n[msake-error] git config user.name is not set\n"
         exit 1
     fi
 
     # check if user.email is set in git
-    GIT_EMAIL="$(git config --get user.email)"
+    GIT_EMAIL="$(git config --global --get user.email)"
     if [ -z "$GIT_EMAIL" ]; then
         printf "\n[msake-error] git config user.email is not set\n"
         exit 1
