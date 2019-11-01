@@ -77,7 +77,7 @@ function createMicroService() {
         mv README README.md
         mv tsconfig tsconfig.json
         mv tslint tslint.json
-        mv src/main src/main.ts
+        mv src/start src/start.ts
         mv src/server/index src/server/index.ts
         mv src/server/server src/server/server.ts
         mv tests/test tests/test.ts
@@ -111,7 +111,7 @@ function createMicroService() {
     # create the first commit
     printf "${P}perform first commit\n"
     git add .
-    git commit -m "msake initialization"
+    git commit -m "$SERVICE_NAME first commit"
 
     printf "${P}service ${SERVICE_NAME} successfully created\n";
 
