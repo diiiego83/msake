@@ -6,7 +6,7 @@
   "repository": "",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/main.js",
+    "start": "node dist/start.js",
     "test": "mocha -r ts-node/register tests/test.ts",
     "coverage": "nyc mocha -r ts-node/register tests/**/*.ts"
   },
