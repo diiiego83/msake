@@ -6,9 +6,9 @@
 # print help menu and exit 
 function help() {
     printf "$0  create, build, help\n\n"
-    printf "%s\n" "- create - create a new micro-service"
-    printf "%s\n" "- build  - build a micro-service"
-    printf "%s\n" "- help   - display this help menu"
+    printf "%s\n" "  create - create a new micro-service"
+    printf "%s\n" "  build  - build a micro-service"
+    printf "%s\n" "  help   - display this help menu"
     exit $1
 }
 
